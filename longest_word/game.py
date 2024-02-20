@@ -1,6 +1,6 @@
 import string
 import random
-
+import requests
 
 class Game:
     def __init__(self) -> list:
@@ -22,7 +22,9 @@ class Game:
                 g.remove(l)
             else :
                 return False
-        return True
+        r = requests.get(f"https://wagon-dictionary.herokuapp.com/{word}")
+        j = r.json()
+        return j["found"]
 
 
 game = Game()
