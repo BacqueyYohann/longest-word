@@ -9,6 +9,7 @@ class Game:
         self.grid = []
         for x in range(9) :
             self.grid.append(random.choice(string.ascii_uppercase))
+        self.high_score = 0
 
 
 
@@ -24,7 +25,14 @@ class Game:
                 return False
         r = requests.get(f"https://wagon-dictionary.herokuapp.com/{word}")
         j = r.json()
-        return j["found"]
+        if j["found"] :
+            if len(word) > self.high_score :
+                self.high_score = len(word)
+            return True
+        return False
+
+    def get_high_score(self) -> int :
+        return self.high_score
 
 
 #game = Game()
