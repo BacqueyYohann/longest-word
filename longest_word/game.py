@@ -27,7 +27,7 @@ class Game:
         return j["found"]
 
 
-game = Game()
-print(game.grid) # --> OQUWRBAZE
+#game = Game()
+#print(game.grid) # --> OQUWRBAZE
 #my_word = "BAROQUE"
 #game.is_valid(my_word) # --> True
